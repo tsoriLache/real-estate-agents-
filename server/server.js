@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
+const Agent = require('../server/models/agent');
 
 const url = process.env.MONGO_URI;
 mongoose
@@ -23,6 +24,11 @@ app.get('/cities', function (req, res) {
     });
 });
 
+app.get('/agents/:city', function (req, res) {
+  Agent.find({ city: req.params.city }).then((agents) => {
+    res.json(agents);
+  });
+});
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
