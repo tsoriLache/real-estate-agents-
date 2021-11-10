@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/tsoriLache/real-estate-agents-/issues"
   },
-  "homepage": "https://github.com/tsoriLache/real-estate-agents-#readme"
+  "homepage": "https://github.com/tsoriLache/real-estate-agents-#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
+  }
 }
