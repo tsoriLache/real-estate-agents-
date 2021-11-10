@@ -15,6 +15,14 @@ mongoose
 
 app.use(express.json());
 
+app.get('/cities', function (req, res) {
+  Agent.find({})
+    .distinct('city') // distinct values
+    .then((cities) => {
+      res.json(cities);
+    });
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
