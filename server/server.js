@@ -29,6 +29,16 @@ app.get('/agents/:city', function (req, res) {
     res.json(agents);
   });
 });
+
+app.put('/agent/:id/edit/:city', function (req, res) {
+  const city = req.params.city;
+  Agent.findOneAndUpdate({ _id: req.params.id }, { city: city }).then(
+    (agent, city) => {
+      res.json(`${agent.name} city updated to ${city}`);
+    }
+  );
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
